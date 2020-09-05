@@ -40,13 +40,16 @@ sudo apt install default-jre
 DOCKERNULL=$(dpkg -l | grep docker-engine )
 if [ -z $DOCKERNULL ]
 then
+  echo "Instalação do docker iniciada"
   installDCK;
 
 else
   #REMOVENDO O DOCKER já instalado
-  #sudo apt-get remove docker docker-engine docker.io containerd runc
-  #INSTALLDOCKER;
-  echo "aa"
+  echo "Remoção do docker atual iniciada";
+  sudo apt-get remove docker docker-engine docker.io containerd runc
+  echo "Instalação do docker iniciada"
+  installDCK;
+
 fi
 
 
